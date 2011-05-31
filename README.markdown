@@ -24,6 +24,12 @@ PrettyCode是一款[Wordpress][wp]的语法着色插件，基于 [google-code-pr
 
 *Update:*
 
+2011-05-30
+
+  * 在tinymce中加入两个按钮，插入code block和inline code，code block使用弹出对话框的形式
+  * 自定义tinymce样式，为加入的code block和inline code设置单独的样式，易于区分
+  * 使用新的tinymce工具图标
+
 2011-01-28
 
   * google code prettify语法着色
@@ -31,9 +37,7 @@ PrettyCode是一款[Wordpress][wp]的语法着色插件，基于 [google-code-pr
 
 *TODO:*
 
-  * 加入tinymce代码inline-code按钮
-  * 加入插入代码对话框，避开webkit下粘贴纯文件的bug
-
+  * 对特定语言着色
 
   [wp]: http://wordpress.org/
   [gcp]: http://code.google.com/p/google-code-prettify/

@@ -1,17 +1,34 @@
 (function() {
 	tinymce.create('tinymce.plugins.prettycode', {
 		init : function(ed, url) {
-			ed.addButton('prettycode', {
-				title : 'Highlight Code',
-				image : url+'/prettycode.png',
+            ed.addCommand('mceBlockPrettyCode', function() {
+                ed.windowManager.open({
+                    file : url + '/codebox.html',
+                    width : 600 + parseInt(ed.getLang('blockPrettyCode.delta_width', 0)),
+                    height : 400 + parseInt(ed.getLang('blockPrettyCode.delta_height', 0)), 
+                    inline : 1
+                }, {
+                    plugin_url : url
+                });
+            });
+
+            ed.addButton('blockPrettyCode', { 
+                title : 'Insert Pretty Code Block', 
+                image: url+'/code-block.png',
+                cmd : 'mceBlockPrettyCode'
+            });
+
+            
+			ed.addButton('inlinePrettyCode', {
+				title : 'Highlight Code Inline',
+				image : url+'/code-inline.png',
 				onclick : function() {
-					var tagtext  = '<pre class="prettyprint">';
-					var inst = tinyMCE.getInstanceById('content');
-					var html = inst.selection.getContent();
-					
-					window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, tagtext + html + '</pre>');
+                    var code = tinyMCE.getInstanceById('content').selection.getContent();
+					var codeInline = '<code>' + code + '</code>';
+					window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, codeInline);
 				}
 			});
+            
 		},
 		createControl : function(n, cm) {
 			return null;

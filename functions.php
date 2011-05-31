@@ -22,7 +22,7 @@ function g2w_prettycode_add_tinymce_plugin($plugin_array) {
 
 // Regist the TinyMCE plugin: editor_plugin.js
 function g2w_prettycode_reg_button($buttons) {
-   array_push($buttons, "prettycode");
+   array_push($buttons, "blockPrettyCode", "inlinePrettyCode");
    return $buttons;
 }
 
@@ -80,17 +80,25 @@ function g2w_prettycode_change_mce_options($init) {
     return $init;
 }
 
+/**
+ * g2w_prettycode_editor_style()
+ */
+function g2w_prettycode_editor_style( $url ) {
+  if ( !empty($url) )
+    $url .= ',';
+
+  $url .= g2w_prettycode_path('editor.css');
+
+  return $url;
+}
+
 // Add Filter
 add_filter('tiny_mce_before_init', 'g2w_prettycode_change_mce_options');
 add_filter('tiny_mce_version', 'g2w_prettycode_refresh_mce');
+add_filter('mce_css', 'g2w_prettycode_editor_style');
+
 // Add Action
 add_action('init', 'g2w_prettycode_add_button');
 add_action('wp_head', 'g2w_prettycode_get_head');
 
-/*
-function g2w_prettycode_footer() {
-	echo '<script type="text/javascript"> window.onload = function() { prettyPrint(); }; </script>'
-}
-add_action('get_footer','gcp_footer');
-*/
 ?>
