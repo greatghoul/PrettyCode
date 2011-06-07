@@ -1,28 +1,15 @@
-PrettyCode是一款[Wordpress][wp]的语法着色插件，基于 [google-code-prettify][gcp]
+PrettyCode是一款[Wordpress][wp]的语法着色插件，基于 [google-code-prettify][gcp]，可以方便的插入 Code Block 和 Inline Code ，使用 google-code-prettify 进行代码着色。它具有以下特性：  
 
-*Setup:*
+  * 基于 google-code-prettify 的代码高亮，无需指定语言类型，小巧方便。
+  * 支持点击 tinymce 工具栏按钮弹出层来插入代码片断，免去非IE内核浏览器在 tinymce 的 visual 模式中粘贴代码失丢失缩进格式的问题
+  * 支持点击 tinymce 工具栏按钮 选中单词或短句增加 Inline Code 的高亮效果，以蓝色等宽字体显示。
+  * 支持对粘贴的HTML转义字符自动转义。
+  * 编辑文章时，对加入的代码块增加边框效果，与其它文本区分。
+  * 自动在页面中加入google-code-prettify的脚本和样式，并在文档加载完成后触发着色，无需手动编辑主题文件。
 
-    <link type="text/css" rel="stylesheet" href="http://www.g2w.me/wp-content/plugins/prettycode/prettify.css" />
-    <script type="text/javascript" src="http://www.g2w.me/wp-content/plugins/prettycode/prettify.js"></script>
-    <script type="text/javascript">
-    if (window.document.all) {
-        window.attachEvent('onload', prettyPrint);
-    } else {
-        window.addEventListener('load', prettyPrint, false);
-    }
-    </script>
+了解更多： <http://www.g2w.me/2011/06/intro-wordpress-plugin-prettycode/>  
 
-*Usage:*
-
-    <pre class="prettyprint"># 取得剪贴板并确保其为打开状态
-    text_obj = wx.TextDataObject()
-    wx.TheClipboard.Open()
-    if wx.TheClipboard.IsOpened() or wx.TheClipboard.Open():
-        # do something...
-        wx.TheClipboard.Close()</pre> 
-
-
-*Update:*
+**更新**
 
 2011-05-30
 
@@ -35,7 +22,7 @@ PrettyCode是一款[Wordpress][wp]的语法着色插件，基于 [google-code-pr
   * google code prettify语法着色
   * 加入tinymce代码块按钮
 
-*TODO:*
+**开发计划**
 
   * 对特定语言着色
 
